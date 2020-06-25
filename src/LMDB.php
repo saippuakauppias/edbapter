@@ -16,6 +16,9 @@ class LMDB extends AbstractAdapter
 
     protected $handerType = 'lmdb';
 
+    /**
+     * {@inheritdoc}
+     */
     public function __construct(string $filepath, string $mode = 'r')
     {
         parent::__construct($filepath, $mode);

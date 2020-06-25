@@ -9,21 +9,29 @@ use Saippuakauppias\EDBApter\EDBApterException;
 abstract class AbstractAdapter implements AdapterInterface
 {
     /**
+     * The database handler
+     *
      * @var resource
      */
     protected $db = null;
 
     /**
+     * The name of the handler
+     *
      * @var string
      */
     protected $handerType = null;
 
     /**
+     * Maximum allowed key length
+     *
      * @var int
      */
     protected $maxKeyLength = null;
 
     /**
+    * Create a database instance for `filepath` with `mode`
+    *
     * @param string $filepath
     * @param string $mode
     * @throws \RuntimeException
@@ -61,11 +69,17 @@ abstract class AbstractAdapter implements AdapterInterface
         $this->close();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function isOpen(): bool
     {
         return !\is_null($this->db);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function close(): AdapterInterface
     {
         if ($this->isOpen()) {
@@ -76,6 +90,9 @@ abstract class AbstractAdapter implements AdapterInterface
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function read(string $key, $default = false): string
     {
         $value = \dba_fetch($key, $this->db);
@@ -90,6 +107,9 @@ abstract class AbstractAdapter implements AdapterInterface
         return $value;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function write(string $key, string $value): AdapterInterface
     {
         $this->checkKeyLength($key);
@@ -102,6 +122,9 @@ abstract class AbstractAdapter implements AdapterInterface
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function update(string $key, string $value): AdapterInterface
     {
         $this->checkKeyLength($key);
@@ -114,6 +137,9 @@ abstract class AbstractAdapter implements AdapterInterface
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function delete(string $key): AdapterInterface
     {
         $status = \dba_delete($key, $this->db);
@@ -124,11 +150,17 @@ abstract class AbstractAdapter implements AdapterInterface
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function exists(string $key): bool
     {
         return \dba_exists($key, $this->db);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function checkKeyLength(string $key): AdapterInterface
     {
         if (\strlen($key) > $this->maxKeyLength) {
