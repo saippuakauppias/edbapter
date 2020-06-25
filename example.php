@@ -37,7 +37,7 @@ $db->close();
 
 // check database is closed
 if ($db->isOpen()) {
-    throw new \Exception('Database closed');
+    throw new \Exception('Database open');
 }
 
 echo 'Success';
