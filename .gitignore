@@ -1,0 +1,4 @@
+/vendor
+composer.lock
+test.db
+test.db-lock

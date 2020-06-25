@@ -1,0 +1,29 @@
+{
+    "name": "saippuakauppias/edbapter",
+    "description": "Simple Ext/DBA Adapter",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "dba",
+        "lmdb"
+    ],
+    "support": {
+        "source": "https://github.com/saippuakauppias/edbapter"
+    },
+    "authors": [
+        {
+            "name": "Denis Veselov",
+            "homepage": "https://github.com/saippuakauppias",
+            "role": "Main Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.3.10",
+        "ext-dba": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Saippuakauppias\\EDBApter\\": "src"
+        }
+    }
+}
