@@ -23,7 +23,7 @@ class LMDB extends AbstractAdapter
     {
         parent::__construct($filepath, $mode);
 
-        // five param:
+        // fifth param:
         // https://bugs.php.net/bug.php?id=78808
         // https://github.com/php/php-src/pull/4910
         // https://github.com/php/php-src/blob/PHP-7.3/ext/dba/tests/bug78808.phpt
