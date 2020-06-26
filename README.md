@@ -18,16 +18,10 @@ The preferred way to install this library is through [composer](http://getcompos
 Either run
 
 ```bash
-$ composer require saippuakauppias/edbapter
+composer require saippuakauppias/edbapter
 ```
 
-or add
-
-```
-"saippuakauppias/edbapter": "^1.0"
-```
-
-to the `require` section of your `composer.json` file.
+or add `"saippuakauppias/edbapter": "^1.0"` to the `require` section of your `composer.json` file.
 
 ## Usage
 
